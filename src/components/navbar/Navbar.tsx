@@ -1,54 +1,64 @@
+
+import { List, X } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
 function Navbar() {
-    const [menuAberto, setMenuAberto] = useState(false);
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
 
     return (
-        <div className='w-screen flex justify-center px-4 py-2 bg-neutral-200 border-b-neutral-300 border-b-1 shadow-lg text-neutral-800 lg:px-20'>
-            <div className="container flex justify-between items-center">
-                <Link to='/home' className="antialiased text-xl font-fira font-bold">Coffee Break Loading</Link>
-
-                <div className="font-sora flex items-center uppercase">
-                    {/* Menu em telas maiores */}
-                    <div className="hidden md:flex gap-3 text-base">
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700">Postagens</Link>
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700">Temas</Link>
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700">Cadastrar tema</Link>
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700">Perfil</Link>
+        <>
+            <div className='w-screen px-5 py-3 md:flex md:justify-between md:items-center bg-neutral-200 border-b-neutral-300 border-b-1 text-neutral-800 lg:px-20'>
+                <div className="flex justify-between items-center">
+                    <div>
+                        <Link to='/home' className="text-xl font-fira font-bold">Console.blog(🚧)</Link>
                     </div>
 
-                    {/* Botão hamburguer - aparece em telas menores */}
-                    <button
-                        onClick={() => setMenuAberto(!menuAberto)}
-                        type="button"
-                        className="md:hidden p-2 w-8 h-8 text-sm text-neutral-400 rounded-2xl hover:bg-neutral-100 focus:outline-none "
-                    >
-                        <span className="sr-only">Abrir menu</span>
-                        <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 4 20 10">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
-
-                    {/* Menu hamburguer em telas menores */}
-                    {menuAberto && (
-                        <div className="absolute top-12  text-xs font-medium bg-neutral-100 shadow-lg flex flex-col md:hidden">
-                            <Link to='' onClick={() => setMenuAberto(false)}  className="hover:text-pink-700 hover:bg-white p-4">Postagens</Link>
-                            <Link to='' onClick={() => setMenuAberto(false)}  className="hover:text-pink-700 hover:bg-white p-4">Temas</Link>
-                            <Link to='' onClick={() => setMenuAberto(false)}  className="hover:text-pink-700 hover:bg-white p-4">Cadastrar tema</Link>
-                            <Link to='' onClick={() => setMenuAberto(false)}  className="hover:text-pink-700 hover:bg-white p-4">Perfil</Link>
-                        </div>
-                    )}
-
-                    {/* Botão Sair */}
-                <div className="ml-2 lg:ml-10">
-                        <Link to='/login' className="text-xs rounded-2xl bg-neutral-400 px-4 py-2 text-stone-50 font-bold hover:bg-cyan-700">
-                            Sair
-                        </Link>
+                    <div className=" cursor-pointer mx-2 md:hidden block" onClick={toggleMenu}>
+                        {menuOpen ? <X size={30} weight='regular' /> : <List size={30} weight='regular' />}
                     </div>
                 </div>
+
+                <div
+                    className={`
+                        font-sora text-base uppercase font-medium md:normal-case md:flex md:items-center absolute md:static bg-neutral-200 w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 transition-all duration-500
+                        ${menuOpen ? 'top-13 opacity-90' : 'top-[-400px] opacity-0'} 
+                        md:opacity-100 md:top-auto
+                    `}
+                >
+                    <div className="mx-5 my-4 md:my-0">
+                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Postagens</Link>
+                    </div>
+
+                    <div className="mx-5 my-4 md:my-0">
+                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Temas</Link>
+                    </div>
+
+                    <div className="mx-5 my-4 md:my-0">
+                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Cadastrar tema</Link>
+                    </div>
+
+                    <div className="mx-5 my-4 md:my-0">
+                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Perfil</Link>
+                    </div>
+
+                    <div className="mx-5 my-4 md:my-0">
+                        <Link to='/login' className="lg:ml-10 uppercase text-base rounded-2xl bg-neutral-400 px-4 py-2 text-stone-50 font-medium hover:bg-cyan-700 duration-500" onClick={closeMenu}>Sair</Link>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </>
+
     );
 }
 
