@@ -1,7 +1,8 @@
 
 import { List, X } from "@phosphor-icons/react";
-import { useState } from "react";
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Navbar() {
 
@@ -14,6 +15,16 @@ function Navbar() {
     const closeMenu = () => {
         setMenuOpen(false);
     };
+
+    const navigate = useNavigate()
+
+    const { handleLogout } = useContext(AuthContext)
+
+    function logout(){
+        handleLogout()
+        alert('O usuário foi desconectado com sucesso!')
+        navigate('/')
+    }
 
     return (
         <>
@@ -51,8 +62,8 @@ function Navbar() {
                         <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Perfil</Link>
                     </div>
 
-                    <div className="mx-5 my-4 md:my-0">
-                        <Link to='/login' className="lg:ml-10 uppercase text-base rounded-2xl bg-neutral-400 px-4 py-2 text-stone-50 font-medium hover:bg-cyan-700 duration-500" onClick={closeMenu}>Sair</Link>
+                    <div onClick={logout} className="mx-5 my-4 md:my-0">
+                        <Link to='/login' className="lg:ml-10 uppercase text-base rounded-2xl bg-neutral-400 px-4 py-2 text-stone-50 font-medium hover:bg-cyan-700 duration-500" onClick={closeMenu} >Sair</Link>
                     </div>
 
                 </div>
