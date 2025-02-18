@@ -51,11 +51,11 @@ function Navbar() {
                     </div>
 
                     <div className="mx-5 my-4 md:my-0">
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Temas</Link>
+                        <Link to='/temas' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Temas</Link>
                     </div>
 
                     <div className="mx-5 my-4 md:my-0">
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Cadastrar tema</Link>
+                        <Link to='/cadastrartema' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Cadastrar tema</Link>
                     </div>
 
                     <div className="mx-5 my-4 md:my-0">
