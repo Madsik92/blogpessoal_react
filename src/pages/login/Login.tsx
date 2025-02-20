@@ -84,7 +84,7 @@ function Login() {
 
           </button>
 
-          <hr className="border-slate-700 w-full" />
+          <hr className="border-neutral-400 w-full" />
 
           <p className='flex justify-center items-center flex-col'>Ainda não tem uma conta?{' '}
             <Link to="/cadastro" className="text-pink-700 font-bold hover:underline">

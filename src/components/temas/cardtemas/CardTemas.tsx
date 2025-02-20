@@ -8,10 +8,10 @@ interface CardTemasProps{
 function CardTemas({ tema }: CardTemasProps) {
     return (
         <div className='shadow-xl font-sora flex flex-col rounded-2xl overflow-hidden justify-center w-9/10'>
-            <header className='py-2 px-6 bg-neutral-400 text-white font-medium text-xl'>
+            <header className='py-2 px-6 bg-neutral-100 text-neutral-800 font-medium text-xl'>
                 Tema
             </header>
-            <p className='p-8 text-xl bg-neutral-100 h-full'>{tema.descricao}</p>
+            <p className='p-8 text-xl h-full'>{tema.descricao}</p>
             
             <div className="flex">
                 <Link to={`/editartema/${tema.id}`} 

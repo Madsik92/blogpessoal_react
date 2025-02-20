@@ -99,14 +99,14 @@ function FormTema() {
     return (
 
         <>
-            <div className="container min-h-screen font-sora flex flex-col items-center justify-start mt-10">
-                <h1 className="text-2xl font-medium text-center my-8">
+            <div className="w-full font-sora flex flex-col min-h-screen bg-neutral-100  items-center">
+                <h1 className="text-3xl font-medium text-center my-8">
                     {id === undefined ? 'Cadastrar Tema' : 'Editar Tema'}
                 </h1>
 
                 <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema} >
                     <div className="flex flex-col gap-2">
-                        <label htmlFor="descricao">Descrição do Tema</label>
+                        <label htmlFor="descricao" className="text-lg">Descrição do Tema</label>
                         <input
                             type="text"
                             placeholder="Descreva aqui seu tema"
@@ -117,7 +117,7 @@ function FormTema() {
                         />
                     </div>
                     <button
-                        className="rounded-2xl text-slate-100 bg-neutral-400 hover:bg-cyan-700 duration-500 w-1/2 py-2 mx-auto flex justify-center"
+                        className="rounded-2xl uppercase font-medium text-slate-100 bg-neutral-400 hover:bg-cyan-700 duration-500 w-1/2 py-2 mx-auto flex justify-center"
                         type="submit">
 
                         {isLoading ?

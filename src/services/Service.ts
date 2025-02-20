@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Await } from "react-router-dom";
 
 const api = axios.create({
     baseURL: 'https://blogpessoal-7kpi.onrender.com/'

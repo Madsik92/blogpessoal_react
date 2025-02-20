@@ -5,7 +5,7 @@ function Footer() {
 
     return (
     <>
-    <div className = "w-screen flex justify-center bg-pink-800 text-stone-50 font-sora" >
+    <div className = "w-full flex justify-center bg-pink-800 text-stone-50 font-sora" >
             <div className="text-xs container flex flex-col items-center py-4">
                 <p className='md:text-base'>
                     Jessica Rosário | Copyright: {data}

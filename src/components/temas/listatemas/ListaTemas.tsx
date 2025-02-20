@@ -52,7 +52,7 @@ function ListaTemas() {
                 />
             )}            
             
-            <div className="flex justify-center w-screen min-h-screen my-4 font-sora">
+            <div className="flex justify-center w-full min-h-screen font-sora my-4">
                 <div className="container flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 justify-items-center">
                         {
