@@ -12,7 +12,7 @@ import DeletarTema from './components/temas/deletartema/DeletarTema'
 import ListaPostagens from './components/postagens/listapostagens/ListaPostagens'
 import FormPostagem from './components/postagens/formpostagens/FormPostagens'
 import DeletarPostagem from './components/postagens/deletarpostagem/DeletarPostagem'
-import Perfil from './pages/Perfil'
+import Perfil from './pages/perfil/Perfil'
 
 function App() {
   return (

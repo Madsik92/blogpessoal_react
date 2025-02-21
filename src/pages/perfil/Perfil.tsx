@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthContext } from '../../src/contexts/AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import { Pencil } from '@phosphor-icons/react'
 
 function Perfil() {
