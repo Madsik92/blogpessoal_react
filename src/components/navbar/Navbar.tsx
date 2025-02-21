@@ -28,7 +28,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='w-full px-5 py-3 md:flex md:justify-between md:items-center bg-neutral-200 border-b-neutral-300 border-b-1 text-neutral-800 lg:px-20'>
+            <div className='relative z-2 w-full px-5 py-3 md:flex md:justify-between md:items-center bg-neutral-200 border-b-neutral-300 border-b-1 text-neutral-800 lg:px-20'>
                 <div className="flex justify-between items-center">
                     <div>
                         <Link to='/home' className="text-xl font-fira font-bold">Console.blog(🚧)</Link>
@@ -59,7 +59,7 @@ function Navbar() {
                     </div>
 
                     <div className="mx-5 my-4 md:my-0">
-                        <Link to='' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Perfil</Link>
+                        <Link to='/perfil' className="focus:text-cyan-700 hover:text-pink-700 duration-500" onClick={closeMenu}>Perfil</Link>
                     </div>
 
                     <div onClick={logout} className="mx-5 my-4 md:my-0">
