@@ -1,11 +1,17 @@
 import { GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
+import { ReactNode, useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Footer() {
     let data = new Date().getFullYear()
 
-    return (
-    <>
-    <div className = "w-full flex justify-center bg-pink-800 text-stone-50 font-sora" >
+        const { usuario } = useContext(AuthContext)
+
+        let componente: ReactNode;
+
+        if(usuario.token !== ''){
+            componente = (
+                <div className = "w-full flex justify-center bg-pink-800 text-stone-50 font-sora" >
             <div className="text-xs container flex flex-col items-center py-4">
                 <p className='md:text-base'>
                     Jessica Rosário | Copyright: {data}
@@ -27,6 +33,13 @@ function Footer() {
                 <p className='pt-3'>Ilustrações editadas a partir de recursos de <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a></p>
             </div>
         </div >
+            )
+        }
+    
+
+    return (
+    <>
+        {componente}
     </>
         
         

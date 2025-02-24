@@ -1,8 +1,9 @@
 
 import { List, X } from "@phosphor-icons/react";
-import { useContext, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
 
@@ -18,16 +19,18 @@ function Navbar() {
 
     const navigate = useNavigate()
 
-    const { handleLogout } = useContext(AuthContext)
+    const { usuario, handleLogout } = useContext(AuthContext)
 
     function logout(){
         handleLogout()
-        alert('O usuário foi desconectado com sucesso!')
+        ToastAlerta('O usuário foi desconectado com sucesso!', 'sucesso')
         navigate('/')
     }
 
-    return (
-        <>
+    let componente: ReactNode;
+
+    if(usuario.token !== ''){
+        componente = (
             <div className='relative z-2 w-full px-5 py-3 md:flex md:justify-between md:items-center bg-neutral-200 border-b-neutral-300 border-b-1 text-neutral-800 lg:px-20'>
                 <div className="flex justify-between items-center">
                     <div>
@@ -68,6 +71,12 @@ function Navbar() {
 
                 </div>
             </div>
+        )
+    }
+
+    return (
+        <>
+            {componente}
         </>
 
     );

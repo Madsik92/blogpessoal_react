@@ -33,7 +33,7 @@ function FormTema() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!')
             navigate('/')
         }
     }, [token])
@@ -67,12 +67,12 @@ function FormTema() {
                     headers: { Authorization: token },
                 })
 
-                alert("O Tema foi Atualizado com sucesso!")
+                ToastAlerta("O Tema foi Atualizado com sucesso!")
             } catch (error: any) {
                 if (error.toString().includes("401")) {
                     handleLogout()
                 } else {
-                    alert("Erro ao atualizar o tema!")
+                    ToastAlerta("Erro ao atualizar o tema!")
                 }
             }
         } else {
@@ -81,12 +81,12 @@ function FormTema() {
                     headers: { Authorization: token }
                 })
 
-                alert("O Tema foi Cadastrado com sucesso!")
+                ToastAlerta("O Tema foi Cadastrado com sucesso!")
             } catch (error: any) {
                 if (error.toString().includes("401")) {
                     handleLogout();
                 } else {
-                    alert("Erro ao cadastrar o tema!")
+                    ToastAlerta("Erro ao cadastrar o tema!")
                 }
             }
         }

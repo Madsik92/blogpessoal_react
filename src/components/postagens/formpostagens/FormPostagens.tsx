@@ -5,6 +5,7 @@ import Postagem from "../../../models/Postagem";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormPostagem() {
 
@@ -59,7 +60,7 @@ function FormPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            ToastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token])
@@ -104,13 +105,13 @@ function FormPostagem() {
                     },
                 });
 
-                alert('Postagem atualizada com sucesso')
+                ToastAlerta('Postagem atualizada com sucesso', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem')
+                    ToastAlerta('Erro ao atualizar a Postagem', 'erro')
                 }
             }
 
@@ -122,13 +123,13 @@ function FormPostagem() {
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso');
+                ToastAlerta('Postagem cadastrada com sucesso', 'sucesso');
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem');
+                    ToastAlerta('Erro ao cadastrar a Postagem', 'erro');
                 }
             }
         }
@@ -140,7 +141,7 @@ function FormPostagem() {
     const carregandoTema = tema.descricao === '';
 
     return (
-        <div className=" font-sora container flex flex-col mx-auto items-center">
+        <div className=" font-sora min-h-screen container flex flex-col mx-auto items-center">
             <h1 className="text-3xl font-medium text-center my-8"> {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}</h1>
 
             <form className="flex flex-col w-4/5 md:w-3/5 gap-3" onSubmit={gerarNovaPostagem}>
@@ -156,14 +157,15 @@ function FormPostagem() {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 ">
                     <label htmlFor="titulo">Texto da Postagem</label>
                     <input
+                    
                         type="text"
                         placeholder="Texto"
                         name="texto"
                         required
-                        className="h- border-1 border-neutral-400 rounded-2xl p-2"
+                        className="border-1 border-neutral-400 rounded-2xl p-2"
                         value={postagem.texto}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />

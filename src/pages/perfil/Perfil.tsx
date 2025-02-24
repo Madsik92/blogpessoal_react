@@ -2,7 +2,8 @@ import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../../contexts/AuthContext'
-import { Pencil } from '@phosphor-icons/react'
+import ModalPerfil from './modalperfil/ModalPerfil'
+import { ToastAlerta } from '../../utils/ToastAlerta'
 
 function Perfil() {
 
@@ -12,7 +13,7 @@ function Perfil() {
 
     useEffect(() => {
         if (usuario.token === "") {
-            alert('Você precisa estar logado')
+            ToastAlerta('Você precisa estar logado', 'info')
             navigate("/")
         }
     }, [usuario.token])
@@ -33,7 +34,7 @@ function Perfil() {
                     className="relative mt-[-6rem] h-72 flex flex-col bg-neutral-200 text-neutral-800 text-xl items-center justify-center"
                 >
                     <div className='absolute top-4 right-4 xl:right-50 cursor-pointer'>
-                        <Pencil size={30} weight='light'/>
+                        <ModalPerfil/>
                     </div>
 
                     <p>Nome: {usuario.nome} </p>
