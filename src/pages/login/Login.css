@@ -1,0 +1,8 @@
+.fundoLogin {
+    background-image: url("https://ik.imagekit.io/madsik/REACT/ROBOlogin.svg?updatedAt=1740086140880");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
